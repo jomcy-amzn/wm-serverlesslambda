@@ -44,7 +44,7 @@
 
 name: 'Terraform'
 
-env: 
+env:
   AWS_REGION: us-west-2
 
 on:
@@ -66,7 +66,7 @@ jobs:
         shell: bash
 
     steps:
-   # Configure AWS credentials  
+   # Configure AWS credentials
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:

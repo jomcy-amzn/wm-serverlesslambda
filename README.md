@@ -22,7 +22,7 @@ set up a GitHub repository with the following structure:
  - An AWS Account with user credentials with permission to deploy AWS resources ( Eg: Attach role: Administrator)
  - A Github/GitLab account
  - Secret variables added for AWS credentials ,Please refer[this page](https://docs.github.com/en/actions/security-guides/encrypted-secrets)
- - 
+ -
 
 Step 1:
 configure Terraform to reference your AWS account
@@ -53,7 +53,7 @@ Headers: Content-Type: application/json
 
 Method: Get Body: {"username":"xyz", "password":"xyz"}
 
-For Verify the code functionality , Execute the below code 
+For Verify the code functionality , Execute the below code
 ```shell script
 $ curl $(terraform output -raw wm-read_url)
 ```
@@ -65,7 +65,7 @@ $ curl $(terraform output -raw wm-read_url)
 ## Usage
 
 - Update .config file in backend-config/ directory to set appropriate backend for each environment
-- Initiate terrafrom with the configured backend using below command:
+- Initiate terraform with the configured backend using below command:
 
 ~~~
 terraform init -backend-config=backend-configs/dev.config
@@ -83,3 +83,58 @@ terraform apply -var-file=environments/dev.tfvars
 
 ~~~
 terraform destroy -var-file=environments/dev.tfvars
+~~~
+
+# Doc Generated automatically from Terraform Docs
+
+<!--- BEGIN_TF_DOCS --->
+
+
+<!--- END_TF_DOCS --->
+
+
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | 1.1.5 |
+| <a name="requirement_archive"></a> [archive](#requirement\_archive) | 2.2.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 3.74.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 3.74.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 3.74.0 |
+
+## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_wm-apigw"></a> [wm-apigw](#module\_wm-apigw) | ./modules/api-gateway | n/a |
+| <a name="module_wm-lambda"></a> [wm-lambda](#module\_wm-lambda) | ./modules/lambda | n/a |
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/3.74.0/docs/data-sources/caller_identity) | data source |
+| [aws_partition.current](https://registry.terraform.io/providers/hashicorp/aws/3.74.0/docs/data-sources/partition) | data source |
+| [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/3.74.0/docs/data-sources/region) | data source |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_apigw_name"></a> [apigw\_name](#input\_apigw\_name) | Name of Api gateway | `string` | `"my_lambda_api_gateway"` | no |
+| <a name="input_lambda_name"></a> [lambda\_name](#input\_lambda\_name) | Name of Lambda function | `string` | `"my_lambda_fucntion"` | no |
+| <a name="input_region"></a> [region](#input\_region) | Region for deploying infrastucture | `string` | `"us-west-2"` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_wm-read_url"></a> [wm-read\_url](#output\_wm-read\_url) | n/a |
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

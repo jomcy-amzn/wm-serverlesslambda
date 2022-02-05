@@ -1,7 +1,7 @@
 
 module "wm-lambda" {
   source      = "./modules/lambda"
-  fn_name     = "jm-test_function"
+  fn_name     = var.lambda_name
   account_id  = data.aws_caller_identity.current.account_id
   region      = data.aws_region.current.id
   description = "jm-test Lambda"
@@ -15,4 +15,5 @@ module "wm-apigw" {
   source          = "./modules/api-gateway"
   integration_uri = module.wm-lambda.invoke-arn
   lambda_arn      = module.wm-lambda.arn
+  apigw_name      = var.apigw_name
 }

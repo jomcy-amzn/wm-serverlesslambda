@@ -1,7 +1,7 @@
 #create an aws api
 
 resource "aws_apigatewayv2_api" "wm-api-gateway" {
-  name          = "wm-serverless_lambda"
+  name          = var.apigw_name
   protocol_type = "HTTP"
   description   = "Api access to lambda"
 }
@@ -12,7 +12,7 @@ resource "aws_apigatewayv2_stage" "lambda-stage" {
 }
 
 resource "aws_apigatewayv2_integration" "lambda-integration" {
-  api_id = aws_apigatewayv2_api.wm-api-gateway.id
+  api_id               = aws_apigatewayv2_api.wm-api-gateway.id
   connection_type      = "INTERNET"
   description          = "serverless_lambda for WM"
   integration_type     = "AWS_PROXY"
