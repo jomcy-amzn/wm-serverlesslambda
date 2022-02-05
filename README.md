@@ -1,5 +1,6 @@
 # Lambda Web Application
 
+
 A sample web application along with Infrastructure as Code for demonstration a
 This project aims at deploying a sample web application on a Lambda .
 This  project architecture demonstrates how to use AWS Lambda in conjunction with Amazon API Gateway, Amazon DynamoDB and Amazon Cognito to build a serverless web application.
