@@ -7,7 +7,7 @@ This  project architecture demonstrates how to use AWS Lambda in conjunction wit
 Assumptions :
 As a best practise all versions are pinned
 
-Requirements:
+**Requirements:**
 IaC Code for provisioning AWS Lambda
 a simple web application that runs on AWS Lambda that prints the request header, method, and body.
 A VPC  with  2 private subnets VPC ID : vpc-xxx as an input to make Lambda private (optional)
