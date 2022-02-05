@@ -1,6 +1,6 @@
 data "archive_file" "wm-webpage" {
   type        = "zip"
-  source_file = "${path.module}/templates/webpage.js"
+  source_file = "${path.module}/template/webpage.js"
   output_path = "./webpage.zip"
 }
 
