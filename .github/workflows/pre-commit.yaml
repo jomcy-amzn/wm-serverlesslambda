@@ -1,9 +1,11 @@
 name: pre-commit
-
+env:
+  AWS_REGION: us-west-2
 on:
   push:
     branches:
       - main
+      - develop
 
 jobs:
   # Min Terraform version(s)

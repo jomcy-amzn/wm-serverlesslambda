@@ -13,17 +13,16 @@ a simple web application that runs on AWS Lambda that prints the request header,
 A VPC  with  2 private subnets VPC ID : vpc-xxx as an input to make Lambda private (optional)
 Role and policy for AWS Lambda function
 set up a GitHub repository with the following structure:
-   - A directory called src which you will store your website code.
+   - Root directory to store your main terraform code.
    - A .github directory which you will then create a workflows directory in and store your GitHub Action configuration files.
-   - A terraform directory where you will store your Terraform configuration files.
+   - A .terraform directory where you will store your Terraform configuration files.
    a RESTful API for backend processing using Amazon API Gateway, AWS Lambda and Amazon DynamoDB
 
 ## Pre- Requisites
-
-- A VPC  with  6 private subnets VPC ID : vpc-xxx
-- Subnet IDs of web-subnet-1 and web-subnet-2 resources create our web layer in two availability zones ( private subnets in region-1a and region-1b)
-- Subnet IDs of App-subnet-1 and app-subnet-2 resources create our app layer in two availability zones( private subnets in region-1a and region-1b)
-- Subnet IDs of Database-subnet-A and Database-subnet-B resources create the database layer in two availability zones. (private subnet in region-1a and region-1b)
+ - An AWS Account with user credentials with permission to deploy AWS resources ( Eg: Attach role: Administrator)
+ - A Github/GitLab account
+ - Secret variables added for AWS credentials ,Please refer[this page](https://docs.github.com/en/actions/security-guides/encrypted-secrets)
+ - 
 
 Step 1:
 configure Terraform to reference your AWS account
@@ -54,13 +53,14 @@ Headers: Content-Type: application/json
 
 Method: Get Body: {"username":"xyz", "password":"xyz"}
 
+For Verify the code functionality , Execute the below code 
+```shell script
+$ curl $(terraform output -raw wm-read_url)
+```
+
 
 [comment]: # ( An optional Route53 module   to bind the domain url to privatesubnet of  We b VPC)
 
-- Rotate Amazon RDS database credentials automatically with AWS Secrets Manager
-- No elastic IPs
-
-[comment]: # (Use user data to bootstrap web and app servers)
 
 ## Usage
 
