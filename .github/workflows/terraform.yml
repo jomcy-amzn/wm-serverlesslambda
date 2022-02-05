@@ -44,6 +44,9 @@
 
 name: 'Terraform'
 
+env: 
+  AWS_REGION: us-west-2
+
 on:
   push:
     branches:
