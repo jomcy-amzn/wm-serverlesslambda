@@ -48,6 +48,7 @@ on:
   push:
     branches:
     - main
+    - f/initcode
   pull_request:
 
 jobs:
