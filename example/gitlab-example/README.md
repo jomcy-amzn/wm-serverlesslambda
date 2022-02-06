@@ -146,7 +146,9 @@ No inputs.
 
 | Name | Description |
 |------|-------------|
+
 | <a name="output_wm_get_url"></a> [wm\_get\_url](#output\_wm\_get\_url) | n/a |
+
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## FAQ

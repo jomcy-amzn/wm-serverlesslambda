@@ -71,6 +71,7 @@ tf-plan:
     paths:
       - ${TF_ROOT}/plan.cache
       - ${TF_ROOT}/webpage.zip
+
     reports:
       terraform: ${TF_ROOT}/plan.json
   rules:

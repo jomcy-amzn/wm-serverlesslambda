@@ -43,6 +43,7 @@
 #         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
 name: 'Terraform-Automation'
+
 env:
   AWS_REGION: us-west-2
 
@@ -88,6 +89,7 @@ jobs:
       uses: hashicorp/setup-terraform@v1
       with:
         #terraform_version: 1.1.4
+
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
       # Checks that all Terraform configuration files adhere to a canonical format
@@ -201,3 +203,4 @@ jobs:
     - name: Terraform Destroy
       run: terraform destroy -var-file=dev.tfvars -auto-approve
       #terraform destroy -var-file=dev.tfvars -auto-approve
+
