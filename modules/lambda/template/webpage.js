@@ -1,59 +1,29 @@
-'use strict';
-exports.handler = async (event) => {
-    console.log('Welcome to our WM_demo API, here are the details of your request:');
-    let name = "you";
-    let city = 'World';
-    let time = 'day';
-    let day = '';
-    let responseCode = 200;
-    console.log("request: " + JSON.stringify(event));
-    console.log("Headers: Content-Type: application/json"+" ")
-    console.log("Method: Get Body:" + "{username:"+ "xyz"+ ","+"password:"+ "xyz"+"}")
-
-
-    if (event.queryStringParameters && event.queryStringParameters.name) {
-        console.log("Received name: " + event.queryStringParameters.name);
-        name = event.queryStringParameters.name;
-    }
-
-    if (event.queryStringParameters && event.queryStringParameters.city) {
-        console.log("Received city: " + event.queryStringParameters.city);
-        city = event.queryStringParameters.city;
-    }
-
-    if (event.headers && event.headers['day']) {
-        console.log("Received day: " + event.headers.day);
-        day = event.headers.day;
-    }
-
-    if (event.body) {
-        console.log(event.body)
-        let body = JSON.parse(event.body)
-        if (body.time)
-            time = body.time;
-    }
-
-    let greeting = `Good ${time}, ${name} of ${city}.`;
-    if (day) greeting += ` Happy ${day}!`;
-
-    let responseBody = {
-        message: greeting,
-        input: event
+var AWS = require('aws-sdk');
+var lambda = new AWS.Lambda();
+var RES;
+exports.handler = function(event,context,callback) {
+    var userName=event.userName;
+    var passWord=event.passWord;
+    var params = {
+        FunctionName: 'ServiceAuthentication', // the lambda function we are going to invoke
+        InvocationType: 'RequestResponse',
+        LogType: 'Tail',
+        Payload: '{ "userName": "'+userName+'","passWord": "'+passWord+'" }'
     };
 
-    // The output from a Lambda proxy integration must be
-    // in the following JSON object. The 'headers' property
-    // is for custom response headers in addition to standard
-    // ones. The 'body' property  must be a JSON string. For
-    // base64-encoded payload, you must also set the 'isBase64Encoded'
-    // property to 'true'.
-    let response = {
-        statusCode: responseCode,
-        headers: {
-            "x-custom-header" : "my custom header value"
-        },
-        body: JSON.stringify(responseBody)
-    };
-    console.log("response: " + JSON.stringify(response))
-    return response;
+    lambda.invoke(params, function(err, data) {
+        if (err) {
+            context.fail(err);
+
+        } else {
+            //context.succeed('ServiceAuthentication said '+data.Payload);
+            var response=data.Payload;
+            console.log("Response received is : ",response);
+            if(response === true){
+                RES = '{"ResponseJSON":{"Body":{"Datalist":{"Authentication":'+response+'}}}}';
+            }else{
+                RES = '{"ResponseJSON":{"Body":{"Datalist":{"Authentication":'+response+'}}}}';
+            }
+            callback(null, JSON.parse(RES));
+        }});
 };
