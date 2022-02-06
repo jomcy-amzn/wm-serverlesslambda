@@ -5,7 +5,7 @@ module "wm-lambda" {
   account_id  = data.aws_caller_identity.current.account_id
   region      = data.aws_region.current.id
   description = "jm-test Lambda"
-  source_arn  = "${module.wm-apigw.execution-arn}/*/GET/hello" //"${aws_api_gateway_rest_api api_gateway.execution_arn}/*/GET/hello"
+  source_arn  = "${module.wm-apigw.execution-arn}/*/GET/api" //"${aws_api_gateway_rest_api api_gateway.execution_arn}/*/GET/hello"
   //subnet_ids        = module.vpc.private_subnets
   //worker_security_group_id
 
