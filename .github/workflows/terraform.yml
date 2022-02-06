@@ -151,7 +151,7 @@ jobs:
     - name: Terraform Apply
       #if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       if: github.event_name == 'push' || github.event_name == 'pull_request'
-      run: terraform apply "tf_plan" -auto-approve
+      run: terraform apply "tf_plan"
        #terraform apply -var-file=dev.tfvars -auto-approve
       #To cleanup the project/aws services created
 
