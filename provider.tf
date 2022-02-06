@@ -11,7 +11,7 @@ terraform {
       version = "2.2.0"
     }
   }
-  required_version = "1.1.4"
+  //required_version = "1.1.4"
   /*  cloud {
     organization = "gh-action-wm"
 
