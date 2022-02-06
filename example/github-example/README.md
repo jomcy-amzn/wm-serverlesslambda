@@ -1,4 +1,4 @@
-# Lambda Web Application
+# Github demo on Auto deployment for Lambda Web Application
 
 
 A sample web application as a serverless worklaload with its Infrastructure as Code for demonstration  continuos deployment

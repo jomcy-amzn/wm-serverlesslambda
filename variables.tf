@@ -1,5 +1,5 @@
 variable "region" {
-  description = "Region for deploying infrastucture"
+  description = "Region for deploying infrastructure"
   default     = "us-west-2"
 }
 variable "apigw_name" {
@@ -8,5 +8,5 @@ variable "apigw_name" {
 }
 variable "lambda_name" {
   description = "Name of Lambda function"
-  default     = "my_lambda_fucntion"
+  default     = "my_lambda_function"
 }

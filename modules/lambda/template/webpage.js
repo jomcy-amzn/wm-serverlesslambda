@@ -1,12 +1,15 @@
 'use strict';
 exports.handler = async (event) => {
-    console.log('Loading hello world function');
+    console.log('Welcome to our WM_demo API, here are the details of your request:');
     let name = "you";
     let city = 'World';
     let time = 'day';
     let day = '';
     let responseCode = 200;
     console.log("request: " + JSON.stringify(event));
+    console.log("Headers: Content-Type: application/json"+" ")
+    console.log("Method: Get Body:" + "{username:"+ "xyz"+ ","+"password:"+ "xyz"+"}")
+
 
     if (event.queryStringParameters && event.queryStringParameters.name) {
         console.log("Received name: " + event.queryStringParameters.name);
