@@ -9,6 +9,9 @@ repos:
       - id: detect-private-key
       - id: detect-aws-credentials
         args: ['--allow-missing-credentials']
+      - id: check-yaml
+      - id: check-merge-conflict
+      - id: end-of-file-fixer
   - repo: https://github.com/antonbabenko/pre-commit-terraform
     rev: v1.62.3
     hooks:

@@ -11,10 +11,16 @@ terraform {
       version = "2.2.0"
     }
   }
-  required_version = "1.1.5"
+  //required_version = "1.1.4"
+  /*  cloud {
+    organization = "gh-action-wm"
+
+    workspaces {
+      name = "ghdemo-ws"
+    }
+  }*/
 }
 
 provider "aws" {
-  version = "3.74.0"
-  region  = var.region
+  region = var.region
 }

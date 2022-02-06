@@ -1,7 +1,7 @@
 #create an aws api
 
 resource "aws_apigatewayv2_api" "wm-api-gateway" {
-  name          = "wm-serverless_lambda"
+  name          = var.apigw_name
   protocol_type = "HTTP"
   description   = "Api access to lambda"
 }
@@ -12,9 +12,7 @@ resource "aws_apigatewayv2_stage" "lambda-stage" {
 }
 
 resource "aws_apigatewayv2_integration" "lambda-integration" {
-  api_id = aws_apigatewayv2_api.wm-api-gateway.id
-
-
+  api_id               = aws_apigatewayv2_api.wm-api-gateway.id
   connection_type      = "INTERNET"
   description          = "serverless_lambda for WM"
   integration_type     = "AWS_PROXY"
@@ -26,7 +24,7 @@ resource "aws_apigatewayv2_integration" "lambda-integration" {
 
 resource "aws_apigatewayv2_route" "lambda-route" {
   api_id    = aws_apigatewayv2_api.wm-api-gateway.id
-  route_key = "GET /hello" //"$default"
+  route_key = "GET /api" //"$default"
   target    = "integrations/${aws_apigatewayv2_integration.lambda-integration.id}"
 }
 
@@ -37,30 +35,3 @@ resource "aws_lambda_permission" "api-gw" {
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${aws_apigatewayv2_api.wm-api-gateway.execution_arn}/*/*/*"
 }
-
-
-/*
-resource "aws_api_gateway_rest_api_policy" "test" {
-  rest_api_id = aws_apigatewayv2_api.wm-api-gateway.id
-
-  policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "*"
-      },
-      "Action": "execute-api:Invoke",
-      "Resource": "${aws_apigatewayv2_api.wm-api-gateway.execution_arn}",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "123.123.123.123/32"
-        }
-      }
-    }
-  ]
-}
-EOF
-}*/
