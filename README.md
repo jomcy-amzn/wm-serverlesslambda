@@ -1,14 +1,20 @@
 # Lambda Web Application
+A sample web application and its IaC automation for demonstrating a serverless web application
+This Project also demonstrates how Github actions enables CICD to automate build and deployment of an IaC Code . 
+Here we set up a complete GitHub Actions workflow to deploy a publicly accessible serververless web app within a Terraform Cloud workspace.
+The workflow will:
+  - vcheck whether the configuration is formatted properly to demonstrate how you can enforce best practices
+  - generate a plan for every pull requests
+  - apply the configuration when you push the code to the main/develop branch
+we can test the work flow by raising a merge/pull request to main/develop branch
 
-
-A sample web application as a serverless worklaload with its Infrastructure as Code for demonstration  continuos deployment
 This project will deploy following AWS services 
-  1. A Lambda function with a function which prints the request header, method, and body
+  1. A Lambda function which prints the request header, method, and body
   2. Role and policy for AWS Lambda function
-  3. An API Gateway integrate with Lambda function
+  3. An API Gateway which integrated with the Lambda function
 
 This  project architecture demonstrates how to use AWS Lambda in conjunction with Amazon API Gateway, Amazon DynamoDB to build a serverless web application.
-This project also has a .github directory which defines a workflow build and deploy the terraform code 
+This project also has a .github directory which defines a workflow to build and deploy the terraform code 
 
 ## Pre- Requisites
  - An AWS Account with user credentials with permission to deploy AWS resources ( Eg: Attach role: Administrator)
