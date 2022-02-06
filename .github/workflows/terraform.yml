@@ -105,14 +105,10 @@ jobs:
       # Generates an execution plan for Terraform
     - name: Terraform Plan
       #if: github.event_name == 'pull_request'
-      run:
-        set -o errexit
-        # checking and deleting any old tf_plan file
-        if [ -f "tf_plan" ];
-        then
-        rm "tf_plan"
-        fi
-        terraform plan -var-file=dev.tfvars -out "tf_plan"
+      run: |
+        chmod +x "${GITHUB_WORKSPACE}/.github/workflows/tf_plan_check.sh"
+        "${GITHUB_WORKSPACE}/.github/workflows/tf_plan_check.sh"
+         terraform plan -var-file=dev.tfvars -out "tf_plan"
       continue-on-error: true
     - name: Upload TF Plan
       uses: actions/upload-artifact@v2
