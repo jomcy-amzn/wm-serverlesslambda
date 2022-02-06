@@ -1,2 +1,3 @@
 region     = us-west-2
-apigw_name = "wm-serverless_lambda"
+apigw_name = "jm-devgithub-apigw"
+lambda_name ="jm-devgithub-lambda"
