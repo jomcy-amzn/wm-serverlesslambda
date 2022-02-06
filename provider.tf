@@ -12,13 +12,13 @@ terraform {
     }
   }
   required_version = "1.1.5"
-  cloud {
+/*  cloud {
     organization = "gh-action-wm"
 
     workspaces {
       name = "ghdemo-ws"
     }
-  }
+  }*/
 }
 
 provider "aws" {
