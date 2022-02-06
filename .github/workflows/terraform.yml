@@ -116,7 +116,7 @@ jobs:
         name: tf_plan
         path:
           ./tf_plan
-          ./webpage.zip
+          ${GITHUB_WORKSPACE}/webpage.zip
         if-no-files-found: error
         retention-days: 1
 
