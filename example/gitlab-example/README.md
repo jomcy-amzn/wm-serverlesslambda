@@ -91,8 +91,8 @@ $ curl $(terraform output -raw wm-read_url)
 
 ```shell script
    terraform init -backend-config=backend-configs/dev.config
-   terraform plan -var-file=environments/dev.tfvars
-   terraform apply -var-file=environments/dev.tfvars
+   terraform plan -var-file=dev.tfvars
+   terraform apply -var-file=dev.tfvars
 ```
 
  - For clean up destroy the infrastucture as shown below

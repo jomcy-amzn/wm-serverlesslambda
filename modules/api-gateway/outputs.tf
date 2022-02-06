@@ -7,5 +7,5 @@ output "arn" {
 }
 
 output "invoke_url_get" {
-  value = "${aws_apigatewayv2_stage.lambda-stage.invoke_url}/get"
+  value = "${aws_apigatewayv2_stage.lambda-stage.invoke_url}/api"
 }

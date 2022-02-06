@@ -110,7 +110,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_wm-gitlab-demo"></a> [wm-gitlab-demo](#module\_wm-gitlab-demo) | git::https://github.com/jomcy-amzn/wm-serverlesslambda.git | n/a |
+| <a name="module_wm-github-demo"></a> [wm-github-demo](#module\_wm-github-demo) | git::https://github.com/jomcy-amzn/wm-serverlesslambda.git | n/a |
 
 ## Resources
 
