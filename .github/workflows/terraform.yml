@@ -114,7 +114,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: tf_plan
-        path:
+        path: |
           ./tf_plan
           ${GITHUB_WORKSPACE}/webpage.zip
         if-no-files-found: error
